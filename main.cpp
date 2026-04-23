@@ -9,6 +9,8 @@ const int LED_STATUS_RED = 4;
 const int LED_STATUS_BLU = 3;
 const int LED_STATUS_GRE = 2;
 
+const int AUDIO_MEAS = A5;
+
 struct ColorRGB{
   int red;
   int green;
@@ -41,9 +43,15 @@ void setStatusColor(struct ColorRGB color) {
   analogWrite(LED_STATUS_BLU, color.blue);
 }
 
-void loop() {
-  Serial.println(digitalRead(BUTTON_PLAY));
+void loop() {  
+  setStatusColor(COLOR_RED);
+  tone(SPEAKER, 250);
   
+  if (digitalRead(BUTTON_PLAY)) {
+    setStatusColor(COLOR_OFF);
+    noTone(SPEAKER);
+  }
+  /*
   if (digitalRead(BUTTON_PLAY)) {
     setStatusColor(COLOR_RED);
     tone(SPEAKER, 250);
@@ -51,6 +59,9 @@ void loop() {
     setStatusColor(COLOR_OFF);
     noTone(SPEAKER);
   }
+  */
+  
+  Serial.println(analogRead(AUDIO_MEAS));
   
   delay(10);
 }
