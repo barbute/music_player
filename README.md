@@ -20,3 +20,21 @@ If time permits I am also interested in the ability to write playlists to the Ar
 - [ ] Start writing the actual logic
 - [ ] Polish README (IE rewrite with my standard template)
 - [ ] Continue potentiometer adjustment testing. Maybe add voltae-buffer (see https://sound-au.com/articles/followers.html#s1) since the current dataset suggests that something is not working
+
+### Useful links
+
+- [Buzzer as speaker article](https://projecthub.arduino.cc/SURYATEJA/use-a-buzzer-module-piezo-speaker-using-arduino-uno-cf4191)
+- [`Serial.println()` | Arduino](https://docs.arduino.cc/language-reference/en/functions/communication/serial/println/)
+- [`analogRead()` | Arduino](https://docs.arduino.cc/language-reference/en/functions/analog-io/analogRead/)
+- [iPod Shuffle | Wikipedia](https://en.wikipedia.org/wiki/IPod_Shuffle)
+- [C++ `struct` | W3](https://www.w3schools.com/cpp/cpp_structs.asp)
+- [Intro to non-inverting amp](https://www.electronics-tutorials.ws/opamp/opamp_3.html)
+- [Voltage followers](https://sound-au.com/articles/followers.html#s1)
+- [Pots and audio](http://www.geofex.com/Article_Folders/potsecrets/potscret.htm)
+- [Radio circuits](https://www.allaboutcircuits.com/textbook/semiconductors/chpt-9/radio-circuits/)
+- [MD image sizing](https://www.markdownguide.org/hacks/#image-size)
+- [Add to PATH](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path)
+- [Bash `free` | W3](https://www.w3schools.com/bash/bash_free.php)
+- [Bash Guide](https://guide.bash.academy/)
+- [Change default shell on macOS](https://www.howtogeek.com/444596/how-to-change-the-default-shell-to-bash-in-macos-catalina/)
+
