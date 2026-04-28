@@ -19,6 +19,7 @@ If time permits I am also interested in the ability to write playlists to the Ar
 - [ ] Fix pot. not controlling volume logarithmically (see http://www.geofex.com/Article_Folders/potsecrets/potscret.htm)
 - [ ] Start writing the actual logic
 - [ ] Polish README (IE rewrite with my standard template)
+- [ ] Add build and deploy section
 - [ ] Continue potentiometer adjustment testing. Maybe add voltae-buffer (see https://sound-au.com/articles/followers.html#s1) since the current dataset suggests that something is not working
 
 ### Useful links

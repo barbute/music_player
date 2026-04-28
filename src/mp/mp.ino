@@ -1,3 +1,13 @@
+/*
+ * ---
+ * Class: CE 1202.004
+ * Assignment: Semester Project
+ *
+ * Author: Jack Demeterio
+ * Date: 2026-05-28
+ * ---
+ */
+
 const int BUTTON_PLAY = 13;
 const int BUTTON_PREV = 12;
 const int BUTTON_NEXT = 11;
