@@ -27,3 +27,27 @@ Unfortunately when simulating this workaround, the output signal values followed
 One of the issues may be that the impedance of the speaker that I am using is too low, thus creating an almost virtual short when connecting it to the wiper (idek if what I just said was correct). Using a voltage buffer may be the solution to offering impedance whilst achieving the desired signal for the speaker (see [this article about voltage followers](https://sound-au.com/articles/followers.html#s1) and [this article about non-inverting op-amps](https://www.electronics-tutorials.ws/opamp/opamp_3.html)).
 
 In all, there is still much research and work to be done.
+
+# 2026-04-28
+
+Setup `deploy.sh` and `test.sh` scripts for using the [`arduino-cli`](https://docs.arduino.cc/arduino-cli/) to deploy programs to the board. Need to write README on build-deploy process.
+
+Built and tested the volume control portion of the circuit in an open lab.
+
+Here is the data I collected:
+
+Potentiometer: $10 \text{k} \Omega$
+GND-to-wiper resistor: $1 \text{k} \Omega$
+Output component impedance: 330 ohm
+
+| Pot. Fractional Rotation | Signal Output (V) |
+| ------------------------ | ----------------- |
+| 0.2 | 2.05 |
+| 0.4 | 2.09 |
+| 0.6 | 2.17 |
+| 0.8 | 2.41 |
+| 1.0 | 9.25 |
+
+The results somewhat mimic what was obtained in the simulation, with a *giant* jump in signal output between the last and second-to-last fractional rotation of the pot. I am still eluded by what is causing this issue.
+
+Unfortunately, due to time constraints I do not believe I will be able to create a proper fix and may just have to settle for this.

@@ -4,7 +4,7 @@
  * Assignment: Semester Project
  *
  * Author: Jack Demeterio
- * Date: 2026-05-28
+ * Date: 2026-04-28
  * ---
  */
 
@@ -20,6 +20,17 @@ const int LED_STATUS_BLU = 3;
 const int LED_STATUS_GRE = 2;
 
 const int AUDIO_MEAS = A5;
+
+enum State {
+  // "Do nothing"
+  IDLE,
+  // Playing a song
+  PLAYING,
+  // Waiting to continue current song
+  PAUSED,
+  // Randomizing play order. Will queue new song when done
+  SHUFFLE
+}
 
 struct ColorRGB{
   int red;

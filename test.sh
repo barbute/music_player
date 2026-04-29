@@ -5,7 +5,7 @@
 # Exit if anything errors
 set -e
 
-main_path="test/hello/hello.ino"
+main_path="test/signal/signal.ino"
 
 # Compile for Arduino Uno board
 arduino-cli compile --fqbn arduino:avr:uno $main_path
