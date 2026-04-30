@@ -5,7 +5,7 @@
 # Exit if anything errors
 set -e
 
-main_path="src/mp/mp.ino"
+main_path="music_player.ino"
 
 # Compile for Arduino Uno board
 arduino-cli compile --fqbn arduino:avr:uno $main_path
