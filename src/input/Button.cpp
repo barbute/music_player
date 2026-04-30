@@ -12,6 +12,8 @@
 
 Button::Button(int pin) {
   _pin = pin;
+
+  pinMode(_pin, INPUT);
 }
 
 void Button::poll(void (*action)()) {

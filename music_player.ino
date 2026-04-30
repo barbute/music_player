@@ -4,18 +4,21 @@
  * Assignment: Semester Project
  *
  * Author: Jack Demeterio
- * Date: 2026-04-28
+ * Date: 2026-04-30
  * ---
  */
 
-#include "Button.h"
-
-Button btn(7);
+#include "src/input/Button.h"
 
 const int BUTTON_PLAY = 13;
 const int BUTTON_PREV = 12;
 const int BUTTON_NEXT = 11;
 const int BUTTON_RAND = 10;
+
+Button playBtn(BUTTON_PLAY);
+Button prevBtn(BUTTON_PREV);
+Button nextBtn(BUTTON_NEXT);
+Button randBtn(BUTTON_RAND);
 
 const int SPEAKER = 7;
 
@@ -50,10 +53,10 @@ ColorRGB COLOR_OFF = { 0, 0, 0 };
 void setup() {
   Serial.begin(9600);
   
-  pinMode(BUTTON_PLAY, INPUT);
-  pinMode(BUTTON_PREV, INPUT);
-  pinMode(BUTTON_NEXT, INPUT);
-  pinMode(BUTTON_RAND, INPUT);
+  // pinMode(BUTTON_PLAY, INPUT);
+  // pinMode(BUTTON_PREV, INPUT);
+  // pinMode(BUTTON_NEXT, INPUT);
+  // pinMode(BUTTON_RAND, INPUT);
   
   pinMode(SPEAKER, OUTPUT);
   

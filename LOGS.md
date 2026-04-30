@@ -57,3 +57,18 @@ Unfortunately, due to time constraints I do not believe I will be able to create
 Wrote `Button.h` to abstract away interactions with buttons. Probably not the best idea to pass a ptr to a function as an arg but who cares. I tested the button logic in sim, and everything looks to be working. The polling should be non-blocking, and the debounce seems to work properly.
 
 Also added `includepath` stuff (added `.vscode` confs). Might want to specify in the README that the paths are platofrm dependent. I'm still going to commit them mostly just for future reference.
+
+Reorganize directory structure:
+
+```
+music_player/
+├── src/
+│   ├── input/
+│   ├── output/
+│   ├── player/
+│   └── util/
+├── test/
+└── music_player.ino
+```
+
+The main idea is to have only the very high-level logic in `music_player.ino` which is then deployed to the Arduino. Everything else is moved into `src/`.
