@@ -39,3 +39,6 @@ If time permits I am also interested in the ability to write playlists to the Ar
 - [Bash Guide](https://guide.bash.academy/)
 - [Change default shell on macOS](https://www.howtogeek.com/444596/how-to-change-the-default-shell-to-bash-in-macos-catalina/)
 - [Makefiles](https://makefiletutorial.com)
+- [Starting with SD cards for Arduino](https://randomnerdtutorials.com/guide-to-sd-card-module-with-arduino/)
+- [SD Library | Arduino](https://docs.arduino.cc/libraries/sd/#File%20class)
+- [`PROGMEM` | Arduino](https://docs.arduino.cc/language-reference/en/variables/utilities/PROGMEM/#notes-and-warnings)

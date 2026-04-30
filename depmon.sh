@@ -19,4 +19,5 @@ arduino-cli compile --fqbn $board_name $main_path
 arduino-cli upload -p $port --fqbn $board_name $main_path
 
 # Open communication with the board
+# See https://arduino.github.io/arduino-cli/dev/commands/arduino-cli_monitor/
 arduino-cli monitor -p $port -b $board_name

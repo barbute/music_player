@@ -8,8 +8,8 @@
  * ---
  */
 
-#ifndef BUTTON_H
-#define BUTTON_H
+#ifndef Button_h
+#define Button_h
 
 #include <Arduino.h>
 
@@ -25,7 +25,7 @@ class Button {
     Button(int pin);
 
     void poll(void (*action)());
-    
+
     int getState();
 };
 

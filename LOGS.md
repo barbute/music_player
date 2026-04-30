@@ -74,3 +74,5 @@ music_player/
 The main idea is to have only the very high-level logic in `music_player.ino` which is then deployed to the Arduino. Everything else is moved into `src/`.
 
 Moved RGBLED code into separate files. Had to use `constexpr` to prevent multiple definitions of same constant (for pre-defined colors). See [this](https://www.geeksforgeeks.org/cpp/understanding-constexper-specifier-in-cpp/) for more info about it.
+
+Added script to deploy code and then view serial output.
