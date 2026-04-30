@@ -39,8 +39,8 @@ void Button::poll(void (*action)()) {
       _waitOnPoll = false;
       _startTimeMS = 0;
       if (getState()) {
-        // Set state to waiting on button release before being able to 
-        // fire action again (prevents double-firing)
+        // Set state to waiting on button release before being able to fire 
+        // action again (prevents double-firing)
         _waitOnRelease = true;
         Serial.print(_pin);
         Serial.print(" Polled:\n");

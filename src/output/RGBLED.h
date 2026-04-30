@@ -33,6 +33,7 @@ class RGBLED {
 
   public:
     RGBLED(int redPin, int greenPin, int bluePin);
+    
     void setColor(ColorRGB color);
 };
 

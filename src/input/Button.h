@@ -23,7 +23,9 @@ class Button {
 
   public:
     Button(int pin);
+
     void poll(void (*action)());
+    
     int getState();
 };
 
