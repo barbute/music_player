@@ -51,3 +51,9 @@ Output component impedance: 330 ohm
 The results somewhat mimic what was obtained in the simulation, with a *giant* jump in signal output between the last and second-to-last fractional rotation of the pot. I am still eluded by what is causing this issue.
 
 Unfortunately, due to time constraints I do not believe I will be able to create a proper fix and may just have to settle for this.
+
+# 2026-04-30
+
+Wrote `Button.h` to abstract away interactions with buttons. Probably not the best idea to pass a ptr to a function as an arg but who cares. I tested the button logic in sim, and everything looks to be working. The polling should be non-blocking, and the debounce seems to work properly.
+
+Also added `includepath` stuff (added `.vscode` confs). Might want to specify in the README that the paths are platofrm dependent. I'm still going to commit them mostly just for future reference.

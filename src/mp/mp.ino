@@ -8,6 +8,10 @@
  * ---
  */
 
+#include "Button.h"
+
+Button btn(7);
+
 const int BUTTON_PLAY = 13;
 const int BUTTON_PREV = 12;
 const int BUTTON_NEXT = 11;
@@ -30,7 +34,7 @@ enum State {
   PAUSED,
   // Randomizing play order. Will queue new song when done
   SHUFFLE
-}
+};
 
 struct ColorRGB{
   int red;
