@@ -72,9 +72,6 @@ int currentSongIndex = 0;
 // State variable used to track the last song played
 int previousSongIndex = 0;
 
-// State variable used to tell if the next played song should be random or not
-bool randomNextSong = false;
-
 // State variable used to track the current index of the note in the song's
 // notes array
 int currentNoteIndex = 0;
@@ -227,6 +224,9 @@ void loop() {
     playBtn.poll();
     // If the shuffle button is pressed, shuffle and start playing
     randBtn.poll();
+    // Poll prev/next just in case user presses them
+    nextBtn.poll();
+    prevBtn.poll();
     // Red indicator LED to tell user no audio is playing
     statusLight.setColor(COLOR_RED);
 
@@ -277,6 +277,8 @@ void loop() {
 
           playBtn.poll();
           randBtn.poll();
+          nextBtn.poll();
+          prevBtn.poll();
         }
         // Otherwise, the note has ended and go to the next note
         else {
@@ -287,7 +289,7 @@ void loop() {
     // If the song is done, do the following: 
     else {
       // GOTO next song
-      currentState = NEXT;
+      next();
     }
   } else if (currentState == PAUSED) {
     // Stop playing when paused
@@ -299,6 +301,8 @@ void loop() {
     // If program is paused, simply poll buttons to await next input
     playBtn.poll();
     randBtn.poll();
+    nextBtn.poll();
+    prevBtn.poll();
   } else if (currentState == SHUFFLE) {
     resetState();
 

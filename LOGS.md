@@ -108,6 +108,5 @@ This is the final TODO to complete the project (at least for now) should only ta
 
 TODO:
 - [X] Have it immediately go to next song after finishing 
-- [ ] Make shuffle a toggle
 - [X] Implement prev/next logic
 - [ ] Wire up volume control and test
