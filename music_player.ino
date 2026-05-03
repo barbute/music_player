@@ -14,6 +14,7 @@
 #include "src/songs/Mario.h"
 #include "src/songs/Pacman.h"
 #include "src/songs/Tetris.h"
+#include "src/songs/Acat.h"
 
 const int BUTTON_PLAY = 13;
 const int BUTTON_PREV = 12;
@@ -51,6 +52,7 @@ struct Song {
   int length; // Length of the array, used for calculations
 };
 
+Song acatSong = { ACAT_NOTES, ACAT_DURATIONS, ACAT_LENGTH };
 Song marioSong = { MARIO_NOTES, MARIO_DURATIONS, MARIO_LENGTH };
 Song pacmanSong = { PACMAN_NOTES, PACMAN_DURATIONS, PACMAN_LENGTH };
 Song tetrisSong = { TETRIS_NOTES, TETRIS_DURATIONS, TETRIS_LENGTH };
@@ -185,7 +187,8 @@ void setup() {
   
   pinMode(SPEAKER, OUTPUT);
 
-  playlist[0] = marioSong;
+  playlist[0] = acatSong;
+  // playlist[0] = marioSong;
   playlist[1] = pacmanSong;
   playlist[2] = tetrisSong;
 }

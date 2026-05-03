@@ -1,0 +1,68 @@
+
+#include "../util/Pitches.h"
+
+const PROGMEM int ACAT_NOTES[] = {
+  NOTE_C4,
+  NOTE_DS4,
+  NOTE_G5,
+  NOTE_F4,
+  NOTE_DS4,
+  NOTE_F4,
+  NOTE_F4,
+  NOTE_F4,
+  NOTE_AS4,
+  NOTE_F6,
+  NOTE_GS4,
+  NOTE_G4,
+  NOTE_F4,
+  NOTE_G4,
+  NOTE_G4,
+  NOTE_AS4,
+  NOTE_C5,
+  NOTE_G6,
+  NOTE_F4,
+  NOTE_DS4,
+  NOTE_AS4,
+  NOTE_F6,
+  NOTE_AS4,
+  NOTE_F6,
+  NOTE_G4,
+  NOTE_AS4,
+  NOTE_F6,
+  NOTE_C5,
+  NOTE_DS5
+};
+
+const PROGMEM int ACAT_DURATIONS[] = {
+  1000 / 772,
+  1000 / 120,
+  1000 / 76,
+  1000 / 565,
+  1000 / 554,
+  1000 / 337,
+  1000 / 359,
+  1000 / 315,
+  1000 / 174,
+  1000 / 152,
+  1000 / 348,
+  1000 / 196,
+  1000 / 380,
+  1000 / 424,
+  1000 / 804,
+  1000 / 793,
+  1000 / 413,
+  1000 / 33,
+  1000 / 587,
+  1000 / 402,
+  1000 / 33,
+  1000 / 120,
+  1000 / 185,
+  1000 / 130,
+  1000 / 391,
+  1000 / 87,
+  1000 / 87,
+  1000 / 2587,
+  1000 / 54
+};
+
+const int ACAT_LENGTH = sizeof(ACAT_NOTES) / sizeof(ACAT_NOTES[0]);
