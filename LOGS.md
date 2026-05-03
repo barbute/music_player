@@ -93,3 +93,5 @@ New minimum specs are:
 - [ ] Working multi-color RGB status light (or at least make it flash pretty colors)
 
 Added songs and `Pitches.h` to project
+
+Switch songs over to using `PROGMEM`. See [this article](https://docs.arduino.cc/language-reference/en/variables/utilities/PROGMEM/) for more about it.

@@ -12,7 +12,7 @@
 
 #include "../util/Pitches.h"
 
-int tetrisNotes[] = {
+const PROGMEM int TETRIS_NOTES[] = {
   NOTE_E5, NOTE_B4, NOTE_C5, NOTE_D5, NOTE_C5, NOTE_B4,
   NOTE_A4, NOTE_A4, NOTE_C5, NOTE_E5, NOTE_D5, NOTE_C5,
   NOTE_B4, NOTE_C5, NOTE_D5, NOTE_E5,
@@ -43,7 +43,7 @@ int tetrisNotes[] = {
   NOTE_GS5
 };
 
-int tetrisDurations[] = {
+const PROGMEM int TETRIS_DURATIONS[] = {
   4, 8, 8, 4, 8, 8,
   4, 8, 8, 4, 8, 8,
   4, 8, 4, 4,
@@ -74,4 +74,4 @@ int tetrisDurations[] = {
   2
 };
 
-int tetrisLength = sizeof(tetrisNotes) / sizeof(tetrisNotes[0]);
+const int TETRIS_LENGTH = sizeof(TETRIS_NOTES) / sizeof(TETRIS_NOTES[0]);

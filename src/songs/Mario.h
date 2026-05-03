@@ -12,7 +12,7 @@
 
 #include "../util/Pitches.h"
 
-int marioNotes[] = {
+const PROGMEM int MARIO_NOTES[] = {
   NOTE_E5, NOTE_E5, REST, NOTE_E5, REST, NOTE_C5, NOTE_E5,
   NOTE_G5, REST, NOTE_G4, REST, 
   NOTE_C5, NOTE_G4, REST, NOTE_E4,
@@ -96,7 +96,7 @@ int marioNotes[] = {
   NOTE_G4, NOTE_D4, NOTE_E4
 };
 
-int marioDurations[] = {
+const PROGMEM int MARIO_DURATIONS[] = {
   8, 8, 8, 8, 8, 8, 8,
   4, 4, 8, 4, 
   4, 8, 4, 4,
@@ -181,4 +181,4 @@ int marioDurations[] = {
   8, 8, 2
 };
 
-int marioLength = sizeof(marioNotes) / sizeof(marioNotes[0]);
+const int MARIO_LENGTH = sizeof(MARIO_NOTES) / sizeof(MARIO_NOTES[0]);

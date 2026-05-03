@@ -12,7 +12,7 @@
 
 #include "../util/Pitches.h"
 
-int pacmanNotes[] = {
+const PROGMEM int PACMAN_NOTES[] = {
   NOTE_B4, NOTE_B5, NOTE_FS5, NOTE_DS5,
   NOTE_B5, NOTE_FS5, NOTE_DS5, NOTE_C5,
   NOTE_C6, NOTE_G6, NOTE_E6, NOTE_C6, NOTE_G6, NOTE_E6,
@@ -22,7 +22,7 @@ int pacmanNotes[] = {
   NOTE_F5, NOTE_FS5, NOTE_G5, NOTE_G5, NOTE_GS5, NOTE_A5, NOTE_B5
 };
 
-int pacmanDurations[] = {
+const PROGMEM int PACMAN_DURATIONS[] = {
   16, 16, 16, 16,
   32, 16, 8, 16,
   16, 16, 16, 32, 16, 8,
@@ -32,4 +32,4 @@ int pacmanDurations[] = {
   32, 32, 32, 32, 32, 16, 8
 };
 
-int pacmanLength = sizeof(pacmanNotes) / sizeof(pacmanNotes[0]);
+const int PACMAN_LENGTH = sizeof(PACMAN_NOTES) / sizeof(PACMAN_NOTES[0]);

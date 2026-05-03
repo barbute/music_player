@@ -56,9 +56,9 @@ struct Song {
   int length; // Length of the array, used for calculations
 };
 
-Song marioSong = { marioNotes, marioDurations, marioLength };
-Song pacmanSong = { pacmanNotes, pacmanDurations, pacmanLength };
-Song tetrisSong = { tetrisNotes, tetrisDurations, tetrisLength };
+Song marioSong = { MARIO_NOTES, MARIO_DURATIONS, MARIO_LENGTH };
+Song pacmanSong = { PACMAN_NOTES, PACMAN_DURATIONS, PACMAN_LENGTH };
+Song tetrisSong = { TETRIS_NOTES, TETRIS_DURATIONS, TETRIS_LENGTH };
 
 // The final amount of songs that can be on the playlist. This MUST be updated
 // if more songs are expected to be added in setup()
