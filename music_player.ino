@@ -44,7 +44,6 @@ enum State {
 
 void setup() {
   Serial.begin(9600);
-  
   // pinMode(BUTTON_PLAY, INPUT);
   // pinMode(BUTTON_PREV, INPUT);
   // pinMode(BUTTON_NEXT, INPUT);
@@ -77,7 +76,7 @@ void loop() {
   
   // Serial.println(analogRead(AUDIO_MEAS));
 
-  statusLight.setColor(COLOR_GREEN);
+  // statusLight.setColor(COLOR_GREEN);
   
   delay(10);
 }

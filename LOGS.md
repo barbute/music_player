@@ -76,3 +76,17 @@ The main idea is to have only the very high-level logic in `music_player.ino` wh
 Moved RGBLED code into separate files. Had to use `constexpr` to prevent multiple definitions of same constant (for pre-defined colors). See [this](https://www.geeksforgeeks.org/cpp/understanding-constexper-specifier-in-cpp/) for more info about it.
 
 Added script to deploy code and then view serial output.
+
+# 2026-05-02
+
+Ok, completely reworking objectives (panic mode).
+
+New minimum specs are:
+
+- [ ] Working play/pause, prev song, next song buttons
+- [ ] Toggle "random song" button, where the next song that plays will not be in playlist order
+- [ ] "Good-enough" volume control knob using potentiometer
+- [ ] Songs hard-coded in header files
+- [ ] Working multi-color RGB status light (or at least make it flash pretty colors)
+
+Added songs and `Pitches.h` to project
