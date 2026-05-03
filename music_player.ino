@@ -39,7 +39,11 @@ enum State {
   // Waiting to continue current song
   PAUSED,
   // Randomizing play order. Will queue new song when done
-  SHUFFLE
+  SHUFFLE,
+  // Skipping to next song
+  NEXT,
+  // Going back to previous song
+  PREVIOUS
 };
 
 // Data structure of a song. Each index in the notes array corresponds to the
@@ -97,14 +101,15 @@ enum State currentState = IDLE;
 
 // Returns the index in the playlist of the song chosen at random
 int getRandomSong(int currentSongIndexPlaylist) {
-  // Save the current index of the song
-  int savedIndex = currentSongIndexPlaylist;
   // Declare variable to store the new index
   int newSongIndex = 0;
+  newSongIndex = getNextSong(currentSongIndex);
+
   // If at the end of the playlist, loop back to start...
-  if (savedIndex == PLAYLIST_LENGTH - 1) {
-    newSongIndex = 0;
-  }
+  if (newSongIndex == 0) {
+    Serial.println(newSongIndex);
+    return newSongIndex;
+  } 
   // ...otherwise try to generate a random index in the playlist for the next song
   else {
     // Try 1000 times to find a random song that doesn't match our current
@@ -118,8 +123,29 @@ int getRandomSong(int currentSongIndexPlaylist) {
       }
     }
   }
+
   Serial.println(newSongIndex);
   return newSongIndex;
+}
+
+int getNextSong(int currentSongIndexPlaylist) {
+  // Save the current index of the song
+  int savedIndex = currentSongIndexPlaylist;
+  // Declare variable to store the new index
+  int newSongIndex = 0;
+
+  // If at the end of the playlist, loop back to start...
+  if (savedIndex == PLAYLIST_LENGTH - 1) {
+    newSongIndex = 0;
+  } else {
+    newSongIndex = savedIndex + 1;
+  }
+
+  return newSongIndex;
+}
+
+int getPreviousSong(int currentSongIndexPlaylist) {
+  return -1;
 }
 
 // Completely resets all state variables and clears audio output
@@ -162,13 +188,15 @@ void pause() {
   currentState = PAUSED;
 }
 
+void next() {
+  Serial.println("NEXT");
+  currentState = NEXT;
+}
+
 // TODO Add this logic 
 void prev() {
   Serial.println("PREV");
-}
-
-void next() {
-  Serial.println("NEXT");
+  currentState = PREVIOUS;
 }
 
 void shuffle() {
@@ -258,17 +286,8 @@ void loop() {
     }
     // If the song is done, do the following: 
     else {
-      resetState();
-
-      // Randomize song
-      currentSongIndex = getRandomSong(currentSongIndex);
-      currentSong = playlist[currentSongIndex];
-
-      Serial.print("NEXT SONG: ");
-      Serial.println(currentSongIndex);
-
-      // Go back to idle
-      idle();
+      // GOTO next song
+      currentState = NEXT;
     }
   } else if (currentState == PAUSED) {
     // Stop playing when paused
@@ -288,5 +307,17 @@ void loop() {
     
     // Start playing next song immediately
     play();
+  } else if (currentState == NEXT) {
+    resetState();
+
+    currentSongIndex = getNextSong(currentSongIndex);
+    currentSong = playlist[currentSongIndex];
+
+    Serial.print("NOW PLAYING: ");
+    Serial.println(currentSongIndex);
+
+    play();
+  } else if (currentState == PREVIOUS) {
+
   }
 }

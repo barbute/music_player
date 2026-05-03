@@ -107,7 +107,7 @@ Thinking about adding a feature where the LED changes colors every time the note
 This is the final TODO to complete the project (at least for now) should only take an hour or less:
 
 TODO:
-- [ ] Have it immediately go to next song after finishing 
+- [X] Have it immediately go to next song after finishing 
 - [ ] Make shuffle a toggle
 - [ ] Implement prev/next logic
 - [ ] Wire up volume control and test
