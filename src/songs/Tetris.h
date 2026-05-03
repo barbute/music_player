@@ -10,7 +10,7 @@
 // https://github.com/hibit-dev/buzzer/blob/master/src/games/tetris/tetris.ino
 // Retrieved 02 May 2026
 
-#include "src/util/Pitches.h"
+#include "../util/Pitches.h"
 
 int tetrisNotes[] = {
   NOTE_E5, NOTE_B4, NOTE_C5, NOTE_D5, NOTE_C5, NOTE_B4,

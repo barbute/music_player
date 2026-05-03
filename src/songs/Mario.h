@@ -10,7 +10,7 @@
 // https://github.com/hibit-dev/buzzer/blob/master/src/games/mario_bros/mario_bros.ino
 // Retrieved 2 May 2026
 
-#include "src/util/Pitches.h"
+#include "../util/Pitches.h"
 
 int marioNotes[] = {
   NOTE_E5, NOTE_E5, REST, NOTE_E5, REST, NOTE_C5, NOTE_E5,

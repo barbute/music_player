@@ -10,7 +10,7 @@
 // https://github.com/hibit-dev/buzzer/blob/master/src/games/pacman/pacman.ino
 // Retrieved 30 April 2026
 
-#include "src/util/Pitches.h"
+#include "../util/Pitches.h"
 
 int pacmanNotes[] = {
   NOTE_B4, NOTE_B5, NOTE_FS5, NOTE_DS5,

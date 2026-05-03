@@ -62,6 +62,9 @@ Reorganize directory structure:
 
 ```
 music_player/
+├── data/
+│   ├── Mario.h
+│   └── Tetris.h/
 ├── src/
 │   ├── input/
 │   ├── output/
