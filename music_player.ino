@@ -131,6 +131,7 @@ int getRandomSong(int currentSongIndexPlaylist) {
 int getNextSong(int currentSongIndexPlaylist) {
   // Save the current index of the song
   int savedIndex = currentSongIndexPlaylist;
+  previousSongIndex = savedIndex;
   // Declare variable to store the new index
   int newSongIndex = 0;
 
@@ -144,8 +145,8 @@ int getNextSong(int currentSongIndexPlaylist) {
   return newSongIndex;
 }
 
-int getPreviousSong(int currentSongIndexPlaylist) {
-  return -1;
+int getPreviousSong() {
+  return previousSongIndex;
 }
 
 // Completely resets all state variables and clears audio output
@@ -193,7 +194,6 @@ void next() {
   currentState = NEXT;
 }
 
-// TODO Add this logic 
 void prev() {
   Serial.println("PREV");
   currentState = PREVIOUS;
@@ -318,6 +318,14 @@ void loop() {
 
     play();
   } else if (currentState == PREVIOUS) {
+    resetState();
 
+    currentSongIndex = getPreviousSong();
+    currentSong = playlist[currentSongIndex];
+
+    Serial.print("NOW PLAYING: ");
+    Serial.println(currentSongIndex);
+
+    play();
   }
 }
