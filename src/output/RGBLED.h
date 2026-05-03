@@ -20,9 +20,12 @@ struct ColorRGB{
 };
 
 // Pre-defined colors for the program
+// constexpr ColorRGB COLOR_GREEN = { 100, 191, 75 };
+// constexpr ColorRGB COLOR_ORANGE = { 242, 131, 34 };
+// constexpr ColorRGB COLOR_RED = { 242, 61, 61 };
 constexpr ColorRGB COLOR_GREEN = { 100, 191, 75 };
-constexpr ColorRGB COLOR_ORANGE = { 242, 131, 34 };
-constexpr ColorRGB COLOR_RED = { 242, 61, 61 };
+constexpr ColorRGB COLOR_ORANGE = { 242, 45, 0 };
+constexpr ColorRGB COLOR_RED = { 242, 1, 1 };
 constexpr ColorRGB COLOR_OFF = { 0, 0, 0 };
 
 class RGBLED {

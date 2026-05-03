@@ -20,11 +20,11 @@ const int BUTTON_PREV = 12;
 const int BUTTON_NEXT = 11;
 const int BUTTON_RAND = 10;
 
-const int SPEAKER = 7;
+const int SPEAKER = 9;
 
-const int LED_STATUS_RED = 4;
+const int LED_STATUS_RED = 6;
 const int LED_STATUS_BLU = 3;
-const int LED_STATUS_GRE = 2;
+const int LED_STATUS_GRE = 5;
 
 RGBLED statusLight(LED_STATUS_RED, LED_STATUS_GRE, LED_STATUS_BLU);
 
@@ -196,8 +196,8 @@ void loop() {
     playBtn.poll();
     // If the shuffle button is pressed, shuffle and start playing
     randBtn.poll();
-    // Turn off indicator LED to tell user no audio is playing
-    statusLight.setColor(COLOR_OFF);
+    // Red indicator LED to tell user no audio is playing
+    statusLight.setColor(COLOR_RED);
 
   } else if (currentState == PLAYING) {
     if (!isSongDone) {
@@ -261,6 +261,9 @@ void loop() {
       currentSongIndex = getRandomSong(currentSongIndex);
       currentSong = playlist[currentSongIndex];
 
+      Serial.print("NEXT SONG: ");
+      Serial.println(currentSongIndex);
+
       // Go back to idle
       idle();
     }
@@ -268,8 +271,8 @@ void loop() {
     // Stop playing when paused
     noTone(SPEAKER);
     
-    // Indicator to RED to show paused state
-    statusLight.setColor(COLOR_RED);
+    // Indicator to ORANGE to show paused state
+    statusLight.setColor(COLOR_ORANGE);
     
     // If program is paused, simply poll buttons to await next input
     playBtn.poll();

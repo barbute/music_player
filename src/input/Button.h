@@ -18,7 +18,7 @@ class Button {
     int _pin;
     void (*_action)();
     int _startTimeMS;
-  	int _debounceThresholdMS = 500;
+  	int _debounceThresholdMS = 50;
   	bool _waitOnPoll = false;
   	bool _waitOnRelease = false;
 
