@@ -71,7 +71,10 @@ bool randomNextSong = false;
 
 // State variable used to track the current index of the note in the song's
 // notes array
+int currentNoteIndex = 0;
+// Temp vars for retrieving notes and durations from PROGMEM
 int currentNote = 0;
+int currentDuration = 0;
 
 // State variable used to mark when a note started playing. Used to ensure the
 // program is non-blocking
@@ -124,8 +127,10 @@ void resetState() {
     statusLight.setColor(COLOR_OFF);
     
     // Reset everything
-    currentNote = 0;
+    currentNoteIndex = 0;
     noteStartTimeMS = 0;
+    currentNote = 0;
+    currentDuration = 0;
     finishedNote = true;
     isSongDone = false;
     randomNextSong = false;
@@ -157,11 +162,11 @@ void pause() {
 
 // TODO Add this logic 
 void prev() {
-
+  Serial.println("PREV");
 }
 
 void next() {
-
+  Serial.println("NEXT");
 }
 
 void shuffle() {
@@ -186,5 +191,96 @@ void setup() {
 }
 
 void loop() {
+  if (currentState == IDLE) {    
+    // If the play/pause button is pressed, begin playing the song
+    playBtn.poll();
+    // If the shuffle button is pressed, shuffle and start playing
+    randBtn.poll();
+    // Turn off indicator LED to tell user no audio is playing
+    statusLight.setColor(COLOR_OFF);
 
+  } else if (currentState == PLAYING) {
+    if (!isSongDone) {
+      // If the note is done playing, run the following actions
+      if (finishedNote) {
+        currentSong = playlist[currentSongIndex];
+        noteStartTimeMS = millis();
+        currentNoteIndex++;
+
+        // Print the current note for debugging
+        Serial.print("Note: ");
+        Serial.print(currentNoteIndex);
+        Serial.println();
+        
+        // Print if the song is finished for debugging
+        isSongDone = currentNoteIndex == currentSong.length;
+        Serial.print("Is song done: ");
+        Serial.print(isSongDone);
+        Serial.println();
+
+        // Pass ptr b/c that's the address to read from PROGMEM
+        currentNote = pgm_read_word_near(&currentSong.notes[currentNoteIndex]);
+        currentDuration = 
+          pgm_read_word_near(&currentSong.duration[currentNoteIndex]);
+        
+        tone(SPEAKER, currentNote);
+
+        // Tone is set, so turn on LED to indicate audio output
+        statusLight.setColor(COLOR_GREEN);
+
+        finishedNote = false;
+      } 
+      // If the note is currently playing, simply check to see if it has 
+      // reached its duration
+      else {
+        isSongDone = currentNoteIndex >= currentSong.length;
+        
+        // Cast millis() to an integer since we wish to perform integer math on
+        // it and millis() returns a long
+        int timeMS = millis();
+
+        // If the current time is less than the expected end time of the note,
+        // keep playing the note
+        if ((noteStartTimeMS + (1000 / currentDuration)) 
+          >= timeMS) {
+
+          playBtn.poll();
+          randBtn.poll();
+        }
+        // Otherwise, the note has ended and go to the next note
+        else {
+          finishedNote = true;
+        }
+      }
+    }
+    // If the song is done, do the following: 
+    else {
+      resetState();
+
+      // Randomize song
+      currentSongIndex = getRandomSong(currentSongIndex);
+      currentSong = playlist[currentSongIndex];
+
+      // Go back to idle
+      idle();
+    }
+  } else if (currentState == PAUSED) {
+    // Stop playing when paused
+    noTone(SPEAKER);
+    
+    // Indicator to RED to show paused state
+    statusLight.setColor(COLOR_RED);
+    
+    // If program is paused, simply poll buttons to await next input
+    playBtn.poll();
+    randBtn.poll();
+  } else if (currentState == SHUFFLE) {
+    resetState();
+
+    currentSongIndex = getRandomSong(currentSongIndex);
+    currentSong = playlist[currentSongIndex];
+    
+    // Start playing next song immediately
+    play();
+  }
 }
