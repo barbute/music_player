@@ -20,11 +20,6 @@ const int BUTTON_PREV = 12;
 const int BUTTON_NEXT = 11;
 const int BUTTON_RAND = 10;
 
-Button playBtn(BUTTON_PLAY);
-Button prevBtn(BUTTON_PREV);
-Button nextBtn(BUTTON_NEXT);
-Button randBtn(BUTTON_RAND);
-
 const int SPEAKER = 7;
 
 const int LED_STATUS_RED = 4;
@@ -160,10 +155,25 @@ void pause() {
   currentState = PAUSED;
 }
 
+// TODO Add this logic 
+void prev() {
+
+}
+
+void next() {
+
+}
+
 void shuffle() {
   Serial.println("SHUFFLE");
   currentState = SHUFFLE;
 }
+
+// Define hardware down here to make compiler happy
+Button playBtn(BUTTON_PLAY, play);
+Button prevBtn(BUTTON_PREV, prev);
+Button nextBtn(BUTTON_NEXT, next);
+Button randBtn(BUTTON_RAND, shuffle);
 
 void setup() {
   Serial.begin(9600);
@@ -175,6 +185,6 @@ void setup() {
   playlist[2] = tetrisSong;
 }
 
-void loop() {  
+void loop() {
 
 }

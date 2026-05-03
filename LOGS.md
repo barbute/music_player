@@ -95,3 +95,5 @@ New minimum specs are:
 Added songs and `Pitches.h` to project
 
 Switch songs over to using `PROGMEM`. See [this article](https://docs.arduino.cc/language-reference/en/variables/utilities/PROGMEM/) for more about it.
+
+Bind actions to buttons on construction. This way if multiple polls are called in the same state they don't overwrite each other. Besides, each button should realistically only be doing one thing regardless of the state (if we wanted to do something more advanced could use an [EventLoop](https://docs.wpilib.org/en/stable/docs/software/convenience-features/event-based.html#downcasting-booleanevent-objects)).

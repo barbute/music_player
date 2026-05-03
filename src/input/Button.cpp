@@ -10,13 +10,14 @@
 
 #include "Button.h"
 
-Button::Button(int pin) {
+Button::Button(int pin, void (*action)()) {
   _pin = pin;
+  _action = action;
 
   pinMode(_pin, INPUT);
 }
 
-void Button::poll(void (*action)()) {
+void Button::poll() {
   int currentTimeMS = millis();
   
   // Wait on release of button before allowing for normal polling
@@ -44,7 +45,7 @@ void Button::poll(void (*action)()) {
         _waitOnRelease = true;
         Serial.print(_pin);
         Serial.print(" Polled:\n");
-        action();
+        _action();
       } else {
         Serial.print(_pin);
         Serial.println(" Not polled");

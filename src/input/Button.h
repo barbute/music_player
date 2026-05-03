@@ -16,15 +16,16 @@
 class Button {
   private:
     int _pin;
+    void (*_action)();
     int _startTimeMS;
   	int _debounceThresholdMS = 500;
   	bool _waitOnPoll = false;
   	bool _waitOnRelease = false;
 
   public:
-    Button(int pin);
+    Button(int pin, void (*action)());
 
-    void poll(void (*action)());
+    void poll();
 
     int getState();
 };
