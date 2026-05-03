@@ -43,7 +43,9 @@ enum State {
   // Skipping to next song
   NEXT,
   // Going back to previous song
-  PREVIOUS
+  PREVIOUS,
+  // Wait a second before going to next song
+  WAIT
 };
 
 // Data structure of a song. Each index in the notes array corresponds to the
@@ -82,6 +84,9 @@ int currentDuration = 0;
 // State variable used to mark when a note started playing. Used to ensure the
 // program is non-blocking
 int noteStartTimeMS = 0;
+
+const int WAIT_TIME_MS = 1000;
+int waitStartTimeMS = 0;
 
 // State variable that will be used to check if the note that is being played
 // should be stopped and the next one queued
@@ -155,11 +160,11 @@ void resetState() {
     // Reset everything
     currentNoteIndex = 0;
     noteStartTimeMS = 0;
+    waitStartTimeMS = 0;
     currentNote = 0;
     currentDuration = 0;
     finishedNote = true;
     isSongDone = false;
-    randomNextSong = false;
 }
 
 // These functions are to be used within the button lambda functions; they need
@@ -199,6 +204,11 @@ void prev() {
 void shuffle() {
   Serial.println("SHUFFLE");
   currentState = SHUFFLE;
+}
+
+void wait() {
+  Serial.println("WAIT");
+  currentState = WAIT;
 }
 
 // Define hardware down here to make compiler happy
@@ -288,8 +298,10 @@ void loop() {
     }
     // If the song is done, do the following: 
     else {
-      // GOTO next song
-      next();
+      waitStartTimeMS = millis();
+
+      // GOTO wait
+      wait();
     }
   } else if (currentState == PAUSED) {
     // Stop playing when paused
@@ -331,5 +343,14 @@ void loop() {
     Serial.println(currentSongIndex);
 
     play();
+  } else if (currentState == WAIT) {
+    int timeMS = millis();
+
+    statusLight.setColor(COLOR_BLUE);
+
+    if ((waitStartTimeMS + WAIT_TIME_MS) <= timeMS) {
+      // GOTO next once time has elapsed
+      next();
+    }
   }
 }

@@ -23,6 +23,7 @@ struct ColorRGB{
 // constexpr ColorRGB COLOR_GREEN = { 100, 191, 75 };
 // constexpr ColorRGB COLOR_ORANGE = { 242, 131, 34 };
 // constexpr ColorRGB COLOR_RED = { 242, 61, 61 };
+constexpr ColorRGB COLOR_BLUE = { 1, 1, 254 };
 constexpr ColorRGB COLOR_GREEN = { 100, 191, 75 };
 constexpr ColorRGB COLOR_ORANGE = { 242, 45, 0 };
 constexpr ColorRGB COLOR_RED = { 242, 1, 1 };
