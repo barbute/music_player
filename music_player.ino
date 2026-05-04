@@ -65,7 +65,7 @@ Song tetrisSong = { TETRIS_NOTES, TETRIS_DURATIONS, TETRIS_LENGTH };
 
 // The final amount of songs that can be on the playlist. This MUST be updated
 // if more songs are expected to be added in setup()
-const int PLAYLIST_LENGTH = 4;
+const int PLAYLIST_LENGTH = 3;
 // Create playlist of songs
 Song* playlist = new Song[PLAYLIST_LENGTH];
 
@@ -222,10 +222,10 @@ void setup() {
   
   pinMode(SPEAKER, OUTPUT);
 
-  playlist[0] = acatSong;
-  playlist[1] = marioSong;
+  // playlist[0] = acatSong;
+  playlist[0] = marioSong;
   playlist[2] = pacmanSong;
-  playlist[3] = tetrisSong;
+  playlist[1] = tetrisSong;
 }
 
 void loop() {
